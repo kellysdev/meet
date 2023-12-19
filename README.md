@@ -2,6 +2,10 @@
 
 A serverless, progressive web application built with React using a test-driven development technique.  This meet app will use the Google Calendar API to fetch upcoming events.
 
+## Serverless
+
+Serverless functions will, as the OAuth consumer, allow the user to log into the Google OAuth provider.  The serverless functions will then use the OAuth authorization code to receive and handle an access token for the user as they request events from the Google Calendar API through the React app.
+
 ## User Stories and Scenarios
 
 ### Feature 1: Filter Events by City
