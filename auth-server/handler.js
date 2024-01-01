@@ -1,5 +1,3 @@
-'use strict';
-
 const { google } = require("googleapis");
 const calendar = google.calendar("v3");
 const SCOPES = ["https://www.googleapis.com/auth/calendar.events.public.readonly"];
@@ -23,8 +21,8 @@ module.exports.getAuthURL = async () => {
   return {
     statusCode: 200,
     headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Credentials': true,
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Credentials": true,
     },
     body: JSON.stringify({
       authUrl,
@@ -47,8 +45,8 @@ module.exports.getAccessToken = async (event) => {
     return {
       statusCode: 200,
       headers: {
-        'Access-Control-Allow-Origins': '*',
-        'Access-Control-Allow-Credentials': true,
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true,
       },
       body: JSON.stringify(results),
     };
