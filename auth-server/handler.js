@@ -45,7 +45,7 @@ module.exports.getAccessToken = async (event) => {
     return {
       statusCode: 200,
       headers: {
-        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Origin": "https://github.com/lladysmall/meet, http://127.0.0.1:8080, http://192.168.1.167:8080",
         "Access-Control-Allow-Credentials": true,
       },
       body: JSON.stringify(results),
