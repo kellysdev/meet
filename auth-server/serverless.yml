@@ -20,7 +20,7 @@ functions:
           path: api/get-auth-url
           method: get
   getAccessToken:
-    handler: handler.getAcessToken
+    handler: handler.getAccessToken
     events:
       - http:
           path: api/token/{code}
