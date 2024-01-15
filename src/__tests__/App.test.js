@@ -5,13 +5,13 @@ describe("<App /> component", () => {
   let AppDOM;
   beforeEach(() => {
     AppDOM = render(<App />).container.firstChild;
-  })
+  });
 
   test("renders list of events", () => {
     expect(AppDOM.querySelector("#event-list")).toBeInTheDocument();
   });
 
   test("render CitySearch", () => {
-    expect(AppDom.querySelector("#city-search")).toBeInTheDocument();
+    expect(AppDOM.querySelector("#city-search")).toBeInTheDocument();
   });
 });
