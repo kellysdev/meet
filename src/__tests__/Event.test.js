@@ -9,10 +9,10 @@ describe("<Event /> component", () => {
   });
 
   test("the event component is collapsed by default", () => {
-    const suggestionListItem = Event.queryByRole("listitem");
-    const showHideButton = Event.queryByRole("button");
+    const suggestionListItem = EventComponent.queryByRole("listitem");
+    const showHideButton = EventComponent.queryByRole("button");
     expect(suggestionListItem).toBeInTheDocument();
-    expect(suggestionListItem).toHaveAttribute("aria-collapsed");
+    expect(suggestionListItem).toHaveAttribute("aria-expanded");
     expect(showHideButton).toBeInTheDocument();
     expect(showHideButton).toHaveClass("show-hide__button");
   });
