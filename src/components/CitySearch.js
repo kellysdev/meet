@@ -17,6 +17,7 @@ const CitySearch = ({ allLocations }) => {
 
   return (
     <div id="city-search">
+
       <input
         type="text"
         className="city"
@@ -25,6 +26,7 @@ const CitySearch = ({ allLocations }) => {
         onFocus={() => setShowSuggestions(true)}
         onChange={handleInputChanged}
       />
+
       {showSuggestions ? 
         <ul className="suggestions">
           {suggestions.map((suggestion) => {
@@ -35,6 +37,7 @@ const CitySearch = ({ allLocations }) => {
           </li>
         </ul> 
       : null}
+      
     </div>
   );
 };
