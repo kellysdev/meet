@@ -8,18 +8,18 @@ describe("<Event /> component", () => {
     EventComponent = render(<Event />);
   });
 
-  test("the event component is collapsed by default", () => {
+  test("the event component is collapsed by default and include a 'show details' button", () => {
     const suggestionListItem = EventComponent.queryByRole("listitem");
-    const showHideButton = EventComponent.queryByRole("button");
+    const showDetailsButton = EventComponent.queryByRole("button");
     expect(suggestionListItem).toBeInTheDocument();
-    expect(suggestionListItem).toHaveAttribute("aria-expanded");
-    expect(showHideButton).toBeInTheDocument();
-    expect(showHideButton).toHaveClass("show-hide__button");
+    expect(suggestionListItem).toHaveAttribute("aria-expanded", "false");
+    expect(showDetailsButton).toBeInTheDocument();
+    expect(showDetailsButton).toHaveClass("show-details");
+  });
 
-    test("renders event title", async () => {
-      const allEvents = await getEvents();
-      EventComponent.rerender(<Event event={allEvents[0]} />);
-      expect(EventComponent.queryByText(allEvents[0].summary)).toBeInTheDocument();
-    })
+  test("renders event title", async () => {
+    const allEvents = await getEvents();
+    EventComponent.rerender(<Event event={allEvents[0]} />);
+    expect(EventComponent.queryByText(allEvents[0].summary)).toBeInTheDocument();
   });
 });

@@ -4,19 +4,19 @@ const Event = ({ event }) => {
   const [showDetails, setShowDetails] = useState(false);
   const [ariaExpanded, setAriaExpanded] = useState(false);
 
-  const showHideDetails = () => {
+  const toggleDetails = () => {
     setShowDetails(!showDetails);
     setAriaExpanded(!ariaExpanded);
   };
 
   return (
-    <li>
-      <div className="event" aria-expanded={ariaExpanded}>
+    <li aria-expanded={ariaExpanded}>
+      <div className="event">
         <h2>{event.summary}</h2>
         {showDetails ? 
           <p></p>
         : 
-          <button onClick={showHideDetails} className="show-hide__button" aria-label="Show details">Show Details</button>
+          <button onClick={toggleDetails} className="show-details" aria-label="Show details">Show Details</button>
         }
       </div>
     </li>
