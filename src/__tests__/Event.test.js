@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-// import { getEvents } from "../api";
+import { getEvents } from "../api";
 import Event from "../components/Event";
 
 describe("<Event /> component", () => {
@@ -15,5 +15,11 @@ describe("<Event /> component", () => {
     expect(suggestionListItem).toHaveAttribute("aria-expanded");
     expect(showHideButton).toBeInTheDocument();
     expect(showHideButton).toHaveClass("show-hide__button");
+
+    test("renders event title", async () => {
+      const allEvents = await getEvents();
+      EventComponent.rerender(<Event event={allEvents[0]} />);
+      expect(EventComponent.queryByText(allEvents[0].summary)).toBeInTheDocument();
+    })
   });
 });
