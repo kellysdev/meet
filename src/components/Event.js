@@ -13,6 +13,7 @@ const Event = ({ event }) => {
     <li>
       <div className="event">
         <h2 className="event-title">{event.summary}</h2>
+        <p className="event-time">{event.created}</p>
         {showDetails ? 
           <div className="event-details" aria-expanded={ariaExpanded}>
           </div>

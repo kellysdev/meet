@@ -15,10 +15,16 @@ describe("<Event /> component", () => {
     expect(showDetailsButton).toHaveClass("show-details");
   });
 
-  test.only("renders event title", async () => {
+  test("renders event title", async () => {
     const allEvents = await getEvents();
     const EventComponent = render(<Event event={allEvents[0]} />);
     expect(EventComponent.queryByText(allEvents[0].summary)).toBeInTheDocument();
   });
-  
+
+  test.only("renders event start time", async () => {
+    const allEvents = await getEvents();
+    const EventComponent = render(<Event event={allEvents[0]} />);
+    expect(EventComponent.queryByText(allEvents[0].created)).toBeInTheDocument();
+  });
+
 });
