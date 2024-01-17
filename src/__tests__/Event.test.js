@@ -37,9 +37,7 @@ describe("<Event /> component Feature 2", () => {
   test("the event details are visible after clicking the 'show details' button", async () => {
     const user = userEvent.setup();
     const showDetailsButton = EventComponent.getByText("Show Details");
-    const eventDetails = EventComponent.container.querySelector(".event-details");
     await user.click(showDetailsButton);
-    // expect(eventDetails).toBeInTheDocument();
     expect(EventComponent.getByText("Hide Details")).toBeInTheDocument();
   });
 });
