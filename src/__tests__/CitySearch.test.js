@@ -70,6 +70,22 @@ describe("<CitySearch /> component", () => {
     expect(cityTextBox).toHaveValue(BerlinGermanySuggestion.textContent);
   });
 
+  // test to cover last branch
+  test("render 'See all cities' when user types in a city that doesn't exit in allLocations", async () => {
+    const user = userEvent.setup();
+    const allEvents = await getEvents();
+    const allLocations = extractLocations(allEvents);
+    CitySearchComponent.rerender(<CitySearch allLocations={allLocations} />);
+
+    // user types "Paris" in city textbox
+    const cityTextBox = CitySearchComponent.queryByRole("textbox");
+    await user.type(cityTextBox, "Paris");
+
+    // get all <li> elements inside the suggestion list
+    const suggestionListItems = CitySearchComponent.queryAllByRole("listitem");
+    
+    expect(suggestionListItems).toHaveLength(1);
+  });
 });
 
 describe("<CitySearch /> integration", () =>{
