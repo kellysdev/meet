@@ -10,11 +10,12 @@ const Event = ({ event }) => {
   };
 
   return (
-    <li aria-expanded={ariaExpanded}>
+    <li>
       <div className="event">
-        <h2>{event.summary}</h2>
+        {/* <h2>{event.summary}</h2> */}
         {showDetails ? 
-          <p></p>
+          <div className="event-details" aria-expanded={ariaExpanded}>
+          </div>
         : 
           <button onClick={toggleDetails} className="show-details" aria-label="Show details">Show Details</button>
         }
