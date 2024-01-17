@@ -1,7 +1,10 @@
 const NumberOfEvents = () => {
   return (
-    <div>
-      <input type="text" />
+    <div id="number-of-events">
+      <input 
+        type="text"
+        value="32"
+      />
     </div>
   )
 };
