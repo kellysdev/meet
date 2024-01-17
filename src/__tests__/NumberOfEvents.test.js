@@ -16,11 +16,11 @@ describe("<NumberOfEvents /> component", () => {
   test("the default value in the textbox is 32", () => {
     expect(NumOfEventsComponent.queryByRole("textbox")).toHaveValue("32");
   });
-
+// Feature 3: Scenario 2
   test("the value of the textbox changes when user types in it", async () => {
     const user = userEvent.setup();
     const textbox = NumOfEventsComponent.queryByRole("textbox");
     await user.type(textbox, "{backspace}{backspace}10");
     expect(textbox).toHaveValue("10");
-  })
+  });
 });
