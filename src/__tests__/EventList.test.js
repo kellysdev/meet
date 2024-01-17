@@ -22,6 +22,7 @@ describe("<EventList /> component", () => {
 });
 
 describe("<EventList /> integration", () => {
+  //Feature 1: Scenario 1
   test("renders a list of 32 events when the app is mounted and rendered", async () => {
     const AppComponent = render(<App />);
     const AppDOM = AppComponent.container.firstChild;
