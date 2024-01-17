@@ -33,7 +33,7 @@ describe("<Event /> component Feature 2", () => {
   test("renders event location", () => {
     expect(EventComponent.queryByText(allEvents[0].location)).toBeInTheDocument();
   });
-// Feature 2: Scenario 2
+// Feature 2: Scenario 2 & 3
   test("the event details are visible after clicking the 'show details' button", async () => {
     const user = userEvent.setup();
     const showDetailsButton = EventComponent.getByText("Show Details");
