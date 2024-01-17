@@ -7,7 +7,7 @@ import CitySearch from "../components/CitySearch";
 describe("<CitySearch /> component", () => {
   let CitySearchComponent;
   beforeEach(() => {
-    CitySearchComponent = render(<CitySearch />);
+    CitySearchComponent = render(<CitySearch allLocations={[]} />);
   });
 
   test("renders text input", () => {
@@ -73,6 +73,7 @@ describe("<CitySearch /> component", () => {
 });
 
 describe("<CitySearch /> integration", () =>{
+  // for Feature 1: Scenario 3
   test("renders a suggestions list whe the app is rendered", async () => {
     const user = userEvent.setup();
     const AppComponent = render(<App />);
