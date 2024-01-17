@@ -18,9 +18,9 @@ describe("<Event /> component", () => {
     expect(showDetailsButton).toHaveClass("show-details");
   });
 
-  // test("renders event title", async () => {
-  //   const allEvents = await getEvents();
-  //   EventComponent.rerender(<Event event={allEvents[0]} />);
-  //   expect(EventComponent.queryByText(allEvents[0].summary)).toBeInTheDocument();
-  // });
+  test("renders event title", async () => {
+    const allEvents = await getEvents();
+    EventComponent.rerender(<Event event={allEvents[0]} />);
+    expect(EventComponent.queryByText(allEvents[0].summary)).toBeInTheDocument();
+  });
 });

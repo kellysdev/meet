@@ -12,7 +12,7 @@ const Event = ({ event }) => {
   return (
     <li>
       <div className="event">
-        {/* <h2>{event.summary}</h2> */}
+        <h2 className="event-title">{event.summary}</h2>
         {showDetails ? 
           <div className="event-details" aria-expanded={ariaExpanded}>
           </div>
