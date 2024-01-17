@@ -21,10 +21,16 @@ describe("<Event /> component", () => {
     expect(EventComponent.queryByText(allEvents[0].summary)).toBeInTheDocument();
   });
 
-  test.only("renders event start time", async () => {
+  test("renders event start time", async () => {
     const allEvents = await getEvents();
     const EventComponent = render(<Event event={allEvents[0]} />);
     expect(EventComponent.queryByText(allEvents[0].created)).toBeInTheDocument();
+  });
+
+  test.only("renders event location", async () => {
+    const allEvents = await getEvents();
+    const EventComponent = render(<Event event={allEvents[0]} />);
+    expect(EventComponent.queryByText(allEvents[0].location)).toBeInTheDocument();
   });
 
 });
