@@ -23,6 +23,7 @@ describe("<App /> component", () => {
 });
 
 describe("<App /> integration", () => {
+  // for Feature 1: Scenario 3
   test("renders a list of events matching the city selected by the user", async () => {
     const user = userEvent.setup();
     const AppComponent= render(<App />);
