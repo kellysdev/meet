@@ -1,31 +1,31 @@
 import mockData from "./mock-data";
 
-// This function takes the accessToken found and checks whether it's a valid token or not.
-// If it's not, then it redirects the user to the Google Authorization screen.
-const checkToken = async (accessToken) => {
-  const response = await fetch(
-    `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
-  );
-  const result = await response.json();
-  return result;
+// This function takes an events array, then uses map to create a new array with only locations.
+// It will also remove all duplicates by creating another new array using the spread operator and spreading a Set.
+export const extractLocations = (events) => {
+  const extractedLocations = events.map((event) => event.location);
+  const locations = [...new Set(extractedLocations)];
+  return locations;
 };
 
-// This function will retreive an access token if one isn't available
-const getToken = async (code) => {
-  try {
-    const encodeCode = encodeURIComponent(code);
- 
-    const response = await fetch("https://3tvxri9f5c.execute-api.us-west-1.amazonaws.com/dev/api/token" + "/" + encodeCode);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`)
-    }
-    const { access_token } = await response.json();
-    access_token && localStorage.setItem("access_token", access_token);
-    return access_token;
-  } catch (error) {
-    error.json();
+// This function will fetch an array of all events
+export const getEvents = async () => {
+  if (window.location.href.startsWith("http://localhost")) {
+    return mockData;
   }
- };
+
+  const token = await getAccessToken();
+
+  if (token) {
+    removeQuery();
+    const url = "https://3tvxri9f5c.execute-api.us-west-1.amazonaws.com/dev/api/get-events" + "/" + token;
+    const response = await fetch(url);
+    const result = await response.json();
+    if (result) {
+      return result.events;
+    } else return null;
+  }
+};
 
 // This function retrieves the access token from localStorage and passes it to tokenCheck().
 // If there is no token, it checks for an authorization code
@@ -52,6 +52,16 @@ export const getAccessToken = async () => {
   return accessToken;
 };
 
+// This function takes the accessToken found and checks whether it's a valid token or not.
+// If it's not, then it redirects the user to the Google Authorization screen.
+const checkToken = async (accessToken) => {
+  const response = await fetch(
+    `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
+  );
+  const result = await response.json();
+  return result;
+};
+
 // This function will remove the access code from the URL before redirecting
 const removeQuery = () => {
   let newurl;
@@ -68,29 +78,19 @@ const removeQuery = () => {
   }
 };
 
-// This function will fetch an array of all events
-export const getEvents = async () => {
-  if (window.location.href.startsWith("http://localhost")) {
-    return mockData;
+// This function will retreive an access token if one isn't available
+const getToken = async (code) => {
+  try {
+    const encodeCode = encodeURIComponent(code);
+ 
+    const response = await fetch("https://3tvxri9f5c.execute-api.us-west-1.amazonaws.com/dev/api/token" + "/" + encodeCode);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`)
+    }
+    const { access_token } = await response.json();
+    access_token && localStorage.setItem("access_token", access_token);
+    return access_token;
+  } catch (error) {
+    error.json();
   }
-
-  const token = await getAccessToken();
-
-  if (token) {
-    removeQuery();
-    const url = "https://3tvxri9f5c.execute-api.us-west-1.amazonaws.com/dev/api/get-events" + "/" + token;
-    const response = await fetch(url);
-    const result = await response.json();
-    if (result) {
-      return result.events;
-    } else return null;
-  }
-};
-
-// This function takes an events array, then uses map to create a new array with only locations.
-// It will also remove all duplicates by creating another new array using the spread operator and spreading a Set.
-export const extractLocations = (events) => {
-  const extractedLocations = events.map((event) => event.location);
-  const locations = [...new Set(extractedLocations)];
-  return locations;
-};
+ };
