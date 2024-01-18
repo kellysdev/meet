@@ -12,22 +12,26 @@ const checkToken = async (accessToken) => {
 
 // This function will retreive an access token if one isn't available
 const getToken = async (code) => {
-  const encodeCode = encodeURIComponent(code);
-  const response = await fetch(
-    "https://3tvxri9f5c.execute-api.us-west-1.amazonaws.com/dev/api/token" + "/" + encodeCode
-  );
-  const { access_token } = await response.json();
-  access_token && localStorage.setItem("access_token", access_token);
+  try {
+    const encodeCode = encodeURIComponent(code);
+ 
+    const response = await fetch("https://3tvxri9f5c.execute-api.us-west-1.amazonaws.com/dev/api/token" + "/" + encodeCode);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`)
+    }
+    const { access_token } = await response.json();
+    access_token && localStorage.setItem("access_token", access_token);
+    return access_token;
+  } catch (error) {
+    error.json();
+  }
+ };
 
-  return access_token;
-};
-
-// This function retrieves the access token from localStorage.
-// If there is a token, it passes it to tokenCheck()
+// This function retrieves the access token from localStorage and passes it to tokenCheck().
 // If there is no token, it checks for an authorization code
 // If there is no authorization code, it redirects the user to the Google Authorization screen
 export const getAccessToken = async () => {
-  const accessToken = localStorage.getItem('access_token');
+  const accessToken = localStorage.getItem("access_token");
 
   const tokenCheck = accessToken && (await checkToken(accessToken));
 
