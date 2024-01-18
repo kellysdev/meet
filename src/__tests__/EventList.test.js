@@ -3,7 +3,6 @@ import { getEvents } from "../api";
 import EventList from "../components/EventList";
 import App from "../App";
 
-
 describe("<EventList /> component", () => {
   let EventListComponent;
   beforeEach(() => {
