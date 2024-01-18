@@ -10,6 +10,18 @@ const checkToken = async (accessToken) => {
   return result;
 };
 
+// This function will retreive an access token if one isn't available
+const getToken = async (code) => {
+  const encodeCode = encodeURIComponent(code);
+  const response = await fetch(
+    "https://3tvxri9f5c.execute-api.us-west-1.amazonaws.com/dev/api/get-events" + "/" + encodeCode
+  );
+  const { access_token } = await response.json();
+  access_token && localStorage.setItem("access_token", access_token);
+
+  return access_token;
+};
+
 // This function retrieves the access token from localStorage.
 // If there is a token, it passes it to tokenCheck()
 // If there is no token, it checks for an authorization code
@@ -35,14 +47,6 @@ export const getAccessToken = async () => {
   }
   return accessToken;
 };
-
-// This function takes an events array, then uses map to create a new array with only locations.
-// It will also remove all duplicates by creating another new array using the spread operator and spreading a Set.
-export const extractLocations = (events) => {
-  const extractedLocations = events.map((event) => event.location);
-  const locations = [...new Set(extractedLocations)];
-  return locations;
-}
 
 // This function will remove the access code from the URL before redirecting
 const removeQuery = () => {
@@ -77,4 +81,12 @@ export const getEvents = async () => {
       return result.events;
     } else return null;
   }
+};
+
+// This function takes an events array, then uses map to create a new array with only locations.
+// It will also remove all duplicates by creating another new array using the spread operator and spreading a Set.
+export const extractLocations = (events) => {
+  const extractedLocations = events.map((event) => event.location);
+  const locations = [...new Set(extractedLocations)];
+  return locations;
 };
