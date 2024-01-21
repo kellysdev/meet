@@ -28,13 +28,11 @@ input[type="number"] {
   line-height: 20px;
   align-self: center;
   height: 38px;
-  /* width: 40%; */
   margin-bottom: 20px;
 }
 
 label {
-  justify-self: start;
-  margin-right: 15px;
+  margin: 15px;
 }
 
 .city {
@@ -42,7 +40,7 @@ label {
 }
 
 #city-search {
-  display: flex-end;
+  display: flex;
   flex-direction: column;
   margin: auto;
   position: relative;
@@ -51,8 +49,7 @@ label {
 .suggestions {
   width: 250px;
   position: absolute;
-  top: 38px;
-  left: 363px;
+  top: 85px;
   z-index: 2;
   align-self: center;
   margin: 0;

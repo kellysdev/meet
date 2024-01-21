@@ -29,11 +29,10 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
   return (
     <div id="city-search">
 
-      <label for="city-input">Events in:</label>
+      <label>Events in:</label>
       <input
         type="text"
         className="city"
-        name="city-input"
           placeholder="Search for a city"
         value={query}
         onFocus={() => setShowSuggestions(true)}
@@ -48,7 +47,7 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
           <li onClick={handleItemClicked} key="See all cities">
             <b>See all cities</b>
           </li>
-        </ul> 
+        </ul>
       : null}
       
     </div>
