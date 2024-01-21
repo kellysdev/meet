@@ -70,7 +70,6 @@ describe("<CitySearch /> component", () => {
     expect(cityTextBox).toHaveValue(BerlinGermanySuggestion.textContent);
   });
 
-  // test to cover last branch
   test("render 'See all cities' when user types in a city that doesn't exit in allLocations", async () => {
     const user = userEvent.setup();
     const allEvents = await getEvents();
