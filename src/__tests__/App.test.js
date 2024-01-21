@@ -57,7 +57,7 @@ describe("<App /> integration", () => {
     const AppDOM = AppComponent.container.firstChild;
 
     const NOEDom = AppDOM.querySelector("#number-of-events");
-    const NOEInput = within(NOEDom).queryByRole("textbox");
+    const NOEInput = within(NOEDom).queryByRole("spinbutton");
     
     await user.type(NOEInput, "{backspace}{backspace}10");
 
