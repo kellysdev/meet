@@ -18,7 +18,7 @@ export const getEvents = async () => {
 
   if (token) {
     removeQuery();
-    const url = "https://3tvxri9f5c.execute-api.us-west-1.amazonaws.com/dev/api/get-events" + "/" + token;
+    const url = `https://3tvxri9f5c.execute-api.us-west-1.amazonaws.com/dev/api/get-events/${token}`;
     const response = await fetch(url);
     const result = await response.json();
     if (result) {
@@ -83,7 +83,7 @@ const getToken = async (code) => {
   try {
     const encodeCode = encodeURIComponent(code);
  
-    const response = await fetch("https://3tvxri9f5c.execute-api.us-west-1.amazonaws.com/dev/api/token" + "/" + encodeCode);
+    const response = await fetch(`https://3tvxri9f5c.execute-api.us-west-1.amazonaws.com/dev/api/token/${encodeCode}`);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`)
     }
