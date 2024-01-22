@@ -70,7 +70,7 @@ module.exports.getCalendarEvents = async (event) => {
         auth: oAuth2Client,
         timeMin: new Date().toISOString(),
         singleEvents: true,
-        orderBy: "StartTime",
+        orderBy: "startTime",
       },
       (error, response) => {
         if (error) {
