@@ -15,11 +15,9 @@ const App = () => {
 
   const fetchData = async () => {
     const allEvents = await getEvents();
-    console.log(allEvents);
     const filteredEvents = currentCity === "See all cities" ? 
       allEvents : 
       allEvents.filter(event => event.location === currentCity);
-    console.log(filteredEvents);
     setEvents(filteredEvents.slice(0, currentNOE));
     setAllLocations(extractLocations(allEvents));
   };
@@ -29,6 +27,7 @@ const App = () => {
   }, [currentCity, currentNOE]);
 
   return (
+    // delay components rendering before fetch is complete:
     <div>
     {!events ? (
       <div>Loading...</div>
@@ -44,6 +43,6 @@ const App = () => {
     )}
     </div>
   );
-}
+};
 
 export default App;
