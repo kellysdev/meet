@@ -42,7 +42,7 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
       {showSuggestions ? 
         <ul className="suggestions">
           {suggestions.map((suggestion) => {
-            return <li onClick={handleItemClicked} key={suggestion}>{suggestion}</li>
+            return <li onClick={handleItemClicked} key={suggestion} className="suggestion-item">{suggestion}</li>
           })}
           <li onClick={handleItemClicked} key="See all cities">
             <b>See all cities</b>
