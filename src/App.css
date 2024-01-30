@@ -3,6 +3,7 @@
 .App {
   text-align: center;
   padding: 2% 5%;
+  background-color: rgba(255, 180, 122, 0.422);
 }
 
 .App * {
@@ -16,6 +17,37 @@ ul {
 
 p {
   margin: 5px 0;
+}
+
+.header {
+  margin: auto;
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.logo {
+  margin-right: 6em;
+}
+
+.subtitle {
+  overflow: hidden;
+  border-right: .15em solid #8eb2b1;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .15em;
+  animation: 
+    typing 3.5s steps(16, end),
+    blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #8eb2b1; }
 }
 
 input[type="text"],
@@ -36,7 +68,11 @@ label {
 }
 
 .city {
-  width: 250px;
+  width: 200px;
+}
+
+.NOE-input {
+  width: 50px;
 }
 
 #city-search {
@@ -95,4 +131,19 @@ button {
   border-radius: 4px;
   outline: none;
   cursor: pointer;
+}
+
+@media(max-width: 520px) {
+  .event {
+    width: 90%;
+  }
+
+  .header {
+    justify-content: center;
+  }
+
+  .logo {
+    margin: auto;
+    padding: 2em;
+  }
 }

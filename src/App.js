@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
-import CitySearch from './components/CitySearch';
-import EventList from './components/EventList';
-import NumberOfEvents from './components/NumberOfEvents';
-import { getEvents, extractLocations } from './api';
+import { useState, useEffect } from "react";
+import CitySearch from "./components/CitySearch";
+import EventList from "./components/EventList";
+import NumberOfEvents from "./components/NumberOfEvents";
+import { getEvents, extractLocations } from "./api";
 
-import './App.css';
+import "./App.css";
 
 const App = () => {
   // NOE = number of events
@@ -33,11 +33,19 @@ const App = () => {
       <div>Loading...</div>
     ) : (
       <div className="App">
-        <CitySearch 
-          allLocations={allLocations} 
-          setCurrentCity={setCurrentCity}
-        />
-        <NumberOfEvents setCurrentNOE={setCurrentNOE} />
+        <div className="header">
+            <div className="logo">
+              <h1 className="meet">meet</h1>
+              <p className="subtitle">& learn to code;</p>
+            </div>
+          <div className="inputs">
+            <CitySearch 
+              allLocations={allLocations} 
+              setCurrentCity={setCurrentCity}
+            />
+            <NumberOfEvents setCurrentNOE={setCurrentNOE} />
+          </div>
+        </div>
         <EventList events={events} />
       </div>
     )}
