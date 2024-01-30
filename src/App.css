@@ -109,6 +109,11 @@ label {
   background-color: #bcdcdb;
 }
 
+.alerts-container {
+  width: 60%;
+  margin: auto;
+}
+
 .event {
   background-color: white;
   width: 80%;
