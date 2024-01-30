@@ -7,6 +7,7 @@ const NumberOfEvents = ({ setCurrentNOE, setErrorAlert }) => {
       setErrorAlert("Please input a whole number for the number of events to display.");
     } else {
       setCurrentNOE(32);
+      setErrorAlert("");
     }
   };
 
