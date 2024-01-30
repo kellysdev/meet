@@ -33,11 +33,13 @@ const App = () => {
       <div>Loading...</div>
     ) : (
       <div className="App">
+
         <div className="header">
             <div className="logo">
               <h1 className="meet">meet</h1>
               <p className="subtitle">& learn to code;</p>
             </div>
+            
           <div className="inputs">
             <CitySearch 
               allLocations={allLocations} 
@@ -46,6 +48,7 @@ const App = () => {
             <NumberOfEvents setCurrentNOE={setCurrentNOE} />
           </div>
         </div>
+        
         <EventList events={events} />
       </div>
     )}
