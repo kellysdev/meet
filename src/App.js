@@ -50,10 +50,10 @@ const App = () => {
             />
             <NumberOfEvents setCurrentNOE={setCurrentNOE} />
           </div>
+        </div>
 
-          <div className="alerts-container">
-            {InfoAlert.length ? <InfoAlert text={infoAlert} /> : null}
-          </div>
+        <div className="alerts-container">
+            {infoAlert.length ? <InfoAlert text={infoAlert} /> : null}
         </div>
 
         <EventList events={events} />

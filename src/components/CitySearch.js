@@ -20,9 +20,9 @@ const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) => {
 
     let infoText;
     if (filteredLocations.length === 0) {
-      infoText = "We cannot find the city you are looking for.  Please try another city."
+      infoText = "We cannot find the city you are looking for.  Please try another city.";
     } else {
-      infoText = ""
+      infoText = "";
     }
     setInfoAlert(infoText);
   }
@@ -32,6 +32,7 @@ const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) => {
     setQuery(value);
     setShowSuggestions(false);
     setCurrentCity(value);
+    setInfoAlert("");
   };
 
   return (
