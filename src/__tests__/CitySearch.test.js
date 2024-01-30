@@ -7,7 +7,12 @@ import CitySearch from "../components/CitySearch";
 describe("<CitySearch /> component", () => {
   let CitySearchComponent;
   beforeEach(() => {
-    CitySearchComponent = render(<CitySearch allLocations={[]} />);
+    CitySearchComponent = render(
+      <CitySearch 
+        allLocations={[]}
+        setCurrentCity={() => {}}
+        setInfoAlert={() => {}} 
+      />);
   });
 
   test("renders text input", () => {
@@ -34,7 +39,7 @@ describe("<CitySearch /> component", () => {
     const user = userEvent.setup();
     const allEvents = await getEvents();
     const allLocations = extractLocations(allEvents);
-    CitySearchComponent.rerender(<CitySearch allLocations={allLocations} />);
+    CitySearchComponent.rerender(<CitySearch allLocations={allLocations} setCurrentCity={() => {}} setInfoAlert={() => {}} />);
 
     // user types "Berlin" in city textbox
     const cityTextBox = CitySearchComponent.queryByRole("textbox");
@@ -58,7 +63,7 @@ describe("<CitySearch /> component", () => {
     const user = userEvent.setup();
     const allEvents = await getEvents();
     const allLocations = extractLocations(allEvents);
-    CitySearchComponent.rerender(<CitySearch allLocations={allLocations} setCurrentCity={() => { }} />);
+    CitySearchComponent.rerender(<CitySearch allLocations={allLocations} setCurrentCity={() => { }} setInfoAlert={() => {}}/>);
     const cityTextBox = CitySearchComponent.queryByRole("textbox");
     await user.type(cityTextBox, "Berlin");
 
@@ -70,11 +75,11 @@ describe("<CitySearch /> component", () => {
     expect(cityTextBox).toHaveValue(BerlinGermanySuggestion.textContent);
   });
 
-  test("render 'See all cities' when user types in a city that doesn't exit in allLocations", async () => {
+  test("render 'See all cities' when user types in a city that doesn't exist in allLocations", async () => {
     const user = userEvent.setup();
     const allEvents = await getEvents();
     const allLocations = extractLocations(allEvents);
-    CitySearchComponent.rerender(<CitySearch allLocations={allLocations} />);
+    CitySearchComponent.rerender(<CitySearch allLocations={allLocations} setCurrentCity={() => {}} setInfoAlert={() => {}} />);
 
     // user types "Paris" in city textbox
     const cityTextBox = CitySearchComponent.queryByRole("textbox");
