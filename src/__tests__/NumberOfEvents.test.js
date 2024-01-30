@@ -6,7 +6,7 @@ describe("<NumberOfEvents /> component", () => {
 // Feature 3: Scenario 1
   let NumOfEventsComponent;
   beforeEach(() => {
-    NumOfEventsComponent = render(<NumberOfEvents setCurrentNOE={() => {}} />);
+    NumOfEventsComponent = render(<NumberOfEvents setCurrentNOE={() => {}} setErrorAlert={() => {}}/>);
   });
 
   test("renders an HTML element with role 'textbox'", () => {

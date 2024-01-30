@@ -3,10 +3,9 @@ const NumberOfEvents = ({ setCurrentNOE, setErrorAlert }) => {
   const handleChange = (e) => {
     setCurrentNOE(e.target.value);
     if (isNaN(e.target.value) || e.target.value <= 0) {
-      setCurrentNOE(32);
       setErrorAlert("Please input a whole number for the number of events to display.");
     } else {
-      setCurrentNOE(32);
+      setCurrentNOE(e.target.value);
       setErrorAlert("");
     }
   };
