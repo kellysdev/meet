@@ -1,9 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
 
+body {
+  background-color: rgba(255, 180, 122, 0.422);
+}
+
 .App {
   text-align: center;
   padding: 2% 5%;
-  background-color: rgba(255, 180, 122, 0.422);
 }
 
 .App * {
