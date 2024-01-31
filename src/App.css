@@ -157,7 +157,7 @@ button {
   cursor: pointer;
 }
 
-@media(max-width: 540px) {
+@media (max-width: 540px) {
   .event {
     width: 90%;
   }
@@ -169,5 +169,11 @@ button {
   .logo {
     margin: auto;
     padding: 2em;
+  }
+}
+
+@media (min-width: 1200px) {
+  .event {
+    width: 70%;
   }
 }
