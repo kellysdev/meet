@@ -21,10 +21,24 @@
       "purpose": "maskable"
     },
     {
-      "src": "mmet-512.png",
+      "src": "meet-512.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshot.png",
+      "form_factor": "wide",
+      "sizes": "1280x720",
+      "label": "meet app"
+    },
+    {
+      "src": "iphoneSE.png",
+      "form_factor": "narrow",
+      "sizes": "330x590",
+      "label": "mobile screenshot"
     }
   ],
   "start_url": ".",
