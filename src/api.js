@@ -17,6 +17,12 @@ export const getEvents = async () => {
     return mockData;
   }
 
+  if(!navigator.onLine) {
+    const events = localStorage.getItem("lastEvents");
+    NProgress.done();
+    return events?JSON.parse(events):[];
+  }
+
   const token = await getAccessToken();
 
   if (token) {
@@ -29,12 +35,6 @@ export const getEvents = async () => {
       localStorage.setItem("lastEvents", JSON.stringify(result.data.events));
       return result.data.items;
     } else return null;
-  }
-  
-  if(!navigator.onLine) {
-    const events = localStorage.getItem("lastEvents");
-    NProgress.done();
-    return events?JSON.parse(events):[];
   }
 };
 
