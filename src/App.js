@@ -40,7 +40,7 @@ const App = () => {
 
         <div className="header">
             <div className="logo">
-              <h1 className="meet">meet</h1>
+              <p className="meet">meet</p>
               <p className="subtitle">& learn to code;</p>
             </div>
             

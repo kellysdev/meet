@@ -32,6 +32,20 @@ p {
   margin-right: 6em;
 }
 
+.meet {
+  font-size: 75px;
+  font-weight: 600;
+  -webkit-text-stroke: 2px #fff;
+  color: black;
+  text-shadow: 
+    3px 3px 0 #fff,
+    -1px -1px 0 #fff,
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
+    1px 1px 0 #fff;
+
+}
+
 .subtitle {
   overflow: hidden;
   border-right: .15em solid #8eb2b1;
@@ -132,16 +146,18 @@ label {
 }
 
 button {
+  background-color: #bcdcdb;
   position: absolute;
   right: 5px;
   bottom: 5px;
   padding: 5px 8px;
+  border: none;
   border-radius: 4px;
   outline: none;
   cursor: pointer;
 }
 
-@media(max-width: 520px) {
+@media(max-width: 540px) {
   .event {
     width: 90%;
   }
