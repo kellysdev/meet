@@ -6,6 +6,7 @@ import { getEvents, extractLocations } from "./api";
 import { InfoAlert, ErrorAlert, WarningAlert } from "./components/Alert";
 
 import "./App.css";
+import "./nprogress.css";
 
 const App = () => {
   // NOE = number of events
