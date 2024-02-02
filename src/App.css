@@ -137,6 +137,12 @@ label {
   margin: auto;
 }
 
+.charts-container {
+  display: flex;
+  width: 80%;
+  margin: 30px auto;
+}
+
 .event {
   background-color: white;
   width: 80%;
@@ -176,10 +182,24 @@ button {
     margin: auto;
     padding: 2em;
   }
+
+  .charts-container {
+    width: 90%;
+  }
+}
+
+@media (max-width: 985px) {
+  .charts-container {
+    flex-wrap: wrap;
+  }
 }
 
 @media (min-width: 1200px) {
   .event {
+    width: 70%;
+  }
+
+  .charts-container {
     width: 70%;
   }
 }
