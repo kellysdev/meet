@@ -21,6 +21,23 @@ const EventGenresChart = ({ events }) => {
     return data;
   };
 
+  const renderCustomizedLabel = ({ cx, cy, midAngle, outerRadius, percent, index }) => {
+    const RADIAN = Math.PI / 180;
+    const radius = outerRadius;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN) * 1.07;
+    const y = cy + radius * Math.sin(-midAngle * RADIAN) * 1.07;
+    return percent ? (
+      <text
+        x={x} y={y}
+        fill="#88848d8"
+        textAnchor={x > cx ? "start" : "end"}
+        dominantBaseline="central"
+      >
+        {`${genres[index]} ${(percent * 100).toFixed(0)}%`}
+      </text>
+    ) : null;
+  };
+
   return (
     <ResponsiveContainer width="99%" height={300}>
       <PieChart>
@@ -28,7 +45,7 @@ const EventGenresChart = ({ events }) => {
         dataKey="value" 
         data={data} 
         fill="#8884d8" 
-        label
+        label={renderCustomizedLabel}
         labelLine={false}
         outerRadius={130} 
       />
