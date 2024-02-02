@@ -3,7 +3,8 @@
 :root {
   --orange-bg: rgba(255, 180, 122, 0.422);
   --blue-accent: rgb(188, 220, 219);
-  --darker-blue-accent: rgb(142, 178, 177); 
+  --darker-blue-accent: rgb(142, 178, 177);
+  --suggestions-bg: rgb(238, 238, 238);
 }
 
 body {
@@ -41,14 +42,14 @@ p {
 .meet {
   font-size: 75px;
   font-weight: 600;
-  -webkit-text-stroke: 2px #fff;
+  -webkit-text-stroke: 2px white;
   color: black;
   text-shadow: 
-    3px 3px 0 #fff,
-    -1px -1px 0 #fff,
-    1px -1px 0 #fff,
-    -1px 1px 0 #fff,
-    1px 1px 0 #fff;
+    3px 3px 0 white,
+    -1px -1px 0 white,
+    1px -1px 0 white,
+    -1px 1px 0 white,
+    1px 1px 0 white;
 
 }
 
@@ -78,7 +79,7 @@ input[type="number"] {
   padding: 8px 6px 8px 10px;
   border-radius: 4px;
   outline: none;
-  border: 1px solid #ccc;
+  border: 1px solid rgb(204, 204, 204);
   font-size: 14px;
   line-height: 20px;
   align-self: center;
@@ -119,7 +120,7 @@ label {
 .suggestions > li {
   text-align: left;
   padding: 8px 6px 8px 10px;
-  background-color: #eee;
+  background-color: var(--suggestions-bg);
   cursor: default;
 }
 
@@ -149,7 +150,7 @@ label {
   padding: 10px 10px 35px;
   margin: 0 auto 15px auto;
   text-align: left;
-  border: 1px solid #ccc;
+  border: 1px solid rgb(204, 204, 204);
   border-radius: 4px;
   position: relative;
   -webkit-box-shadow: 5px 5px 10px -5px rgba(0,0,0,0.4);
