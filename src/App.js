@@ -21,16 +21,16 @@ const App = () => {
   const [errorAlert, setErrorAlert] = useState("");
   const [warningAlert, setWarningAlert] = useState("");
 
-  const fetchData = async () => {
-    const allEvents = await getEvents();
-    const filteredEvents = currentCity === "See all cities" ? 
-      allEvents : 
-      allEvents.filter(event => event.location === currentCity);
-    setEvents(filteredEvents.slice(0, currentNOE));
-    setAllLocations(extractLocations(allEvents));
-  };
-
   useEffect(() => {
+    const fetchData = async () => {
+      const allEvents = await getEvents();
+      const filteredEvents = currentCity === "See all cities" ? 
+        allEvents : 
+        allEvents.filter(event => event.location === currentCity);
+      setEvents(filteredEvents.slice(0, currentNOE));
+      setAllLocations(extractLocations(allEvents));
+    };
+
     if (navigator.onLine) {
       setWarningAlert("");
     } else {

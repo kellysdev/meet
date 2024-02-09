@@ -13,19 +13,16 @@ const EventGenresChart = ({ events }) => {
   ];
 
   useEffect(() => {
-    setData(getData());
-  }, [`${events}`]);
+      const data = genres.map(genre => {
+        const filteredEvents = events.filter(event => event.summary.includes(genre));
+        return {
+          name: genre,
+          value: filteredEvents.length
+        };
+      });
 
-  const getData = () => {
-    const data = genres.map(genre => {
-      const filteredEvents = events.filter(event => event.summary.includes(genre));
-      return {
-        name: genre,
-        value: filteredEvents.length
-      };
-    })
-    return data;
-  };
+    setData(data);
+  }, [JSON.stringify(events)]);
 
   const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
     const RADIAN = Math.PI / 180;
