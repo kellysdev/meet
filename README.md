@@ -2,9 +2,21 @@
 
 A serverless, progressive web application built with React using a test-driven development technique.  This app uses the Google Calendar API to fetch upcoming events, utilizes OAuth2 authentication and AWS Lambda serverless functions, and features data visualization enabled by Recharts.
 
-## Serverless
+## Features
 
-Serverless functions will, as the OAuth consumer, allow the user to log into the Google OAuth provider.  The serverless functions will then use the OAuth authorization code to receive and handle an access token for the user as they request events from the Google Calendar API through the React app.
+- Serverless functions will, as the OAuth consumer, allow the user to log into the Google OAuth provider.
+- The serverless functions will then use the OAuth authorization code to receive and handle an access token for the user as they request events from the Google Calendar API.
+- Events from the Google Calendar API are displayed and can be filtered by city.
+- Utlizes a service worker to allow the events and data to be viewed without a network connection.
+- Can be installed to the users desktop and/or mobile home screen.
+
+## Getting Started
+
+Clone this repository with `git clone https://github.com/kellysdev/meet.git`.
+
+From the working directory, install the app's dependencies with `npm install`.
+
+Run `npm run start` to start a dev server.  The app will open at `http://localhost:3000/meet` and will automatically update as changed to the source files are made.
 
 ## User Stories and Scenarios
 
